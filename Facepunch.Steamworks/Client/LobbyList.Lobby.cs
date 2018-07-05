@@ -8,7 +8,7 @@ namespace Facepunch.Steamworks
     {
         public class Lobby 
         {
-            private Dictionary<string, string> lobbyData;
+            public Dictionary<string, string> LobbyData;
             internal Client Client;
             public string Name { get; private set; }
             public ulong LobbyID { get; private set; }
@@ -24,7 +24,7 @@ namespace Facepunch.Steamworks
             /// <returns>The value at key</returns>
             public string GetData(string k)
             {
-                if (lobbyData.TryGetValue(k, out var v))
+                if (LobbyData.TryGetValue(k, out var v))
                     return v;
 
                 return string.Empty;
@@ -38,7 +38,7 @@ namespace Facepunch.Steamworks
             {
                 var returnData = new Dictionary<string, string>();
 
-                foreach ( var item in lobbyData)
+                foreach ( var item in LobbyData)
                 {
                     returnData.Add(item.Key, item.Value);
                 }
@@ -68,7 +68,7 @@ namespace Facepunch.Steamworks
                     MemberLimit = client.native.matchmaking.GetLobbyMemberLimit(lobby),
                     Owner = client.native.matchmaking.GetLobbyOwner(lobby),
                     NumMembers = client.native.matchmaking.GetNumLobbyMembers(lobby),
-                    lobbyData = lobbyData
+                    LobbyData = lobbyData
                 };
                 
             }
