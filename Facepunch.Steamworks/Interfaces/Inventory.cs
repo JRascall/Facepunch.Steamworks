@@ -52,7 +52,7 @@ namespace Facepunch.Steamworks
 
             FetchItemDefinitions();
             LoadDefinitions();
-            UpdatePrices();
+            //UpdatePrices();
 
             if ( !server )
             {
